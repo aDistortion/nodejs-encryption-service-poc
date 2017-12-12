@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
   const decrypt$ = encrypted$.switchMap(cipher => CryptoService.decrypt(cipher));
   decrypt$.subscribe((plain) => {
-      console.log(plain);
+      console.log('Plain: '+plain);
       res.render('index', { title: 'Nodejs encryption PoC' , val: plain});
   });
 });
